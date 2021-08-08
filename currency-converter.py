@@ -29,3 +29,47 @@ def RealTimeCurrencyConversion():
 def clear_all():
     Amount1_field.delete(0, tk.END)
     Amount2_field.delete(0, tk.END)
+
+
+CurrenyCode_list = ["INR", "USD", "CAD", "CNY", "DKK", "EUR"]
+
+root.configure(background='#e6e5e5')
+root.geometry("700x400")
+
+Label_1 = Label(root, font=('lato black', 27, 'bold'), text="", padx=2, pady=2, bg="#e6e5e5", fg="black")
+Label_1.grid(row=1, column=0, sticky=W)
+
+label1 = tk.Label(root, font=('lato black', 15, 'bold'), text="\t    Amount  :  ", bg="#e6e5e5", fg="black")
+label1.grid(row=2, column=0, sticky=W)
+
+label1 = tk.Label(root, font=('lato black', 15, 'bold'), text="\t    From Currency  :  ", bg="#e6e5e5", fg="black")
+label1.grid(row=3, column=0, sticky=W)
+
+label1 = tk.Label(root, font=('lato black', 15, 'bold'), text="\t    To Currency  :  ", bg="#e6e5e5", fg="black")
+label1.grid(row=4, column=0, sticky=W)
+
+label1 = tk.Label(root, font=('lato black', 15, 'bold'), text="\t    Converted Amount  :  ", bg="#e6e5e5", fg="black")
+label1.grid(row=8, column=0, sticky=W)
+
+Label_1 = Label(root, font=('lato black', 7, 'bold'), text="", padx=2, pady=2, bg="#e6e5e5", fg="black")
+Label_1.grid(row=5, column=0, sticky=W)
+
+Label_1 = Label(root, font=('lato black', 7, 'bold'), text="", padx=2, pady=2, bg="#e6e5e5", fg="black")
+Label_1.grid(row=7, column=0, sticky=W)
+
+FromCurrency_option = tk.OptionMenu(root, currency1, *CurrenyCode_list)
+ToCurrency_option = tk.OptionMenu(root, currency2, *CurrenyCode_list)
+FromCurrency_option.grid(row=3, column=0, ipadx=45, sticky=E)
+ToCurrency_option.grid(row=4, column=0, ipadx=45, sticky=E)
+Amount1_field = tk.Entry(root)
+Amount1_field.grid(row=2, column=0, ipadx=28, sticky=E)
+Amount2_field = tk.Entry(root)
+Amount2_field.grid(row=8, column=0, ipadx=31, sticky=E)
+Label_9 = Button(root, font=('arial', 15, 'bold'), text="   Convert  ", padx=2, pady=2, bg="light blue", fg="white",
+                 command=RealTimeCurrencyConversion)
+Label_9.grid(row=6, column=0)
+Label_1 = Label(root, font=('lato black', 7, 'bold'), text="", padx=2, pady=2, bg="#e6e5e5", fg="black")
+Label_1.grid(row=9, column=0, sticky=W)
+Label_9 = Button(root, font=('arial', 15, 'bold'), text="   Clear All  ", padx=2, pady=2, bg="light blue", fg="white", command=clear_all)
+Label_9.grid(row=10, column=0)
+root.mainloop()
